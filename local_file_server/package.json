@@ -13,7 +13,11 @@
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "react-welcome-page": "^0.2.1"
+    "react-user-profile": "^1.0.3",
+    "react-welcome-page": "^0.2.1",
+    "styled-components": "^5.0.1",
+    "copy-clipboard-js": "^1.0.3",
+    "material-kit-react": "^1.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
