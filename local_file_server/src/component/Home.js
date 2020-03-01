@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 import data from '../cofig'
 import NavigationBar from "./NavigationBar";
+import Button from "react-bootstrap/Button";
 
 
 class Home extends React.Component{
@@ -49,6 +50,12 @@ class Home extends React.Component{
                     <td>{file.checksum}</td>
                     <td>{file.downloads}</td>
                     <td>{file.size}</td>
+                    <td>
+                        <Button variant="warning"
+                                onClick={()=>{window.open("http://localhost:8080/download/"+file.localFileID, "_blank")}}>
+                            Download
+                        </Button>
+                    </td>
                 </tr>
             );
         })
@@ -86,6 +93,7 @@ class Home extends React.Component{
                             <th>Checksum</th>
                             <th>Download(s)</th>
                             <th>Size</th>
+                            <th>Download</th>
                         </tr>
                         </thead>
                         <tbody>
