@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 import data from '../cofig'
+import NavigationBar from "./NavigationBar";
 
 
 class Home extends React.Component{
@@ -31,6 +32,7 @@ class Home extends React.Component{
         axios
             .get(filesUrl)
             .then((res)=>{
+                console.log(res.data);
                 this.setState({files:res.data})
             })
     }
@@ -39,11 +41,14 @@ class Home extends React.Component{
         return this.state.files.map((file)=>{
             return(
                 <tr>
-                    <td>{file.fileID}</td>
+                    <td>{file.localFileID}</td>
                     <td>{file.fileName}</td>
-                    <td>{file.uploadedBy}</td>
+                    <td>{file.uploadTime}</td>
+                    <td>{file.privateIP}</td>
+                    <td>{file.publicIP}</td>
                     <td>{file.checksum}</td>
-                    <td>{file.download}</td>
+                    <td>{file.downloads}</td>
+                    <td>{file.size}</td>
                 </tr>
             );
         })
@@ -65,6 +70,8 @@ class Home extends React.Component{
                         },
                     ]}
                 />
+                <NavigationBar/>
+
 
                 <div className={"m-wrapper"}>
 
@@ -73,9 +80,12 @@ class Home extends React.Component{
                         <tr>
                             <th>File ID</th>
                             <th>File Name</th>
-                            <th>Uploaded By</th>
+                            <th>Upload Time</th>
+                            <th>Private IP</th>
+                            <th>Public IP</th>
                             <th>Checksum</th>
-                            <th>Download</th>
+                            <th>Download(s)</th>
+                            <th>Size</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from "./component/Home";
-import Profile from "./component/Profile";
+import Upload from "./component/Upload";
 import {BrowserRouter,Switch, Route, Redirect} from 'react-router-dom'
 
 const router=
@@ -11,7 +11,7 @@ const router=
                 <Redirect to="/home"/>
             </Route>
             <Route path="/home" component={Home} title={"Home"}/>
-            <Route path="/profile/:username" component={Profile} title={"Profile"}/>
+            <Route path="/upload" component={Upload} title={"Profile"}/>
             <Route path="*">
                 <Redirect to={"/home"}/>
             </Route>
