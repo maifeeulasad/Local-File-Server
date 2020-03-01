@@ -7,13 +7,15 @@ import server from '../server';
 import {NotificationManager} from "react-notifications";
 import NavigationBar from './NavigationBar';
 import * as CCJ from "copy-clipboard-js";
+import * as publicIp from 'public-ip';
 
 
 class Upload extends React.Component{
     state={
         link:'',
         status:'ready',//ready,uploading,done,copied
-        file:undefined
+        file:undefined,
+        ip:undefined
     };
 
     constructor(props){
@@ -21,6 +23,13 @@ class Upload extends React.Component{
         this.onInputChange=this.onInputChange.bind(this);
         this.upload=this.upload.bind(this);
         this.copyLink=this.copyLink.bind(this);
+    }
+
+    componentWillMount() {
+        publicIp.v4().then((ip)=>{
+            console.log(ip);
+            this.setState({ip:ip})
+        })
     }
 
     copyLink(){
@@ -42,6 +51,7 @@ class Upload extends React.Component{
         let url=server.server+"/upload";
         let form=new FormData();
         form.append("file",file);
+        form.append("ip",this.state.ip);
         axios.post(url,form)
             .then((res)=>this.uploadDone(res.data))
             .catch((err)=>NotificationManager.error(err,'',2000));
