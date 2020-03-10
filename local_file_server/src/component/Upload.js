@@ -3,7 +3,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
-import server from '../server';
+import server from '../muaconfig';
 import {NotificationManager} from "react-notifications";
 import NavigationBar from './NavigationBar';
 import * as CCJ from "copy-clipboard-js";

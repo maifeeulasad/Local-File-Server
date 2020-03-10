@@ -5,9 +5,12 @@ import {Table} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
-import data from '../cofig'
+import '../index.css';
 import NavigationBar from "./NavigationBar";
 import Button from "react-bootstrap/Button";
+import {NotificationManager} from "react-notifications";
+import * as server from '../muaconfig';
+
 
 
 class Home extends React.Component{
@@ -28,20 +31,22 @@ class Home extends React.Component{
     }
 
     loadFiles(){
-        let filesUrl=data.server+"/files";
+        let filesUrl=server.server+"/files";
         console.log(filesUrl);
         axios
             .get(filesUrl)
             .then((res)=>{
                 console.log(res.data);
+                NotificationManager.success('File list updated','',2000);
                 this.setState({files:res.data})
             })
     }
 
     renderFiles(){
+        let keyCount=0;
         return this.state.files.map((file)=>{
             return(
-                <tr>
+                <tr key={++keyCount}>
                     <td>{file.localFileID}</td>
                     <td>{file.fileName}</td>
                     <td>{file.uploadTime}</td>
@@ -52,7 +57,7 @@ class Home extends React.Component{
                     <td>{file.size}</td>
                     <td>
                         <Button variant="warning"
-                                onClick={()=>{window.open("http://localhost:8080/download/"+file.localFileID, "_blank")}}>
+                                onClick={()=>{window.open(server.server+"/download/"+file.localFileID, "_blank")}}>
                             Download
                         </Button>
                     </td>
@@ -66,7 +71,7 @@ class Home extends React.Component{
         return(
             <div>
                 <Welcome
-                    loopDuration={2500}
+                    loopDuration={1500}
                     data={[
                         {
                             image: require('../asset/image/hug.webp'),
@@ -110,3 +115,4 @@ class Home extends React.Component{
 }
 
 export default Home;
+
