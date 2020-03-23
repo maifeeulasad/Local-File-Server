@@ -87,7 +87,7 @@ class Home extends React.Component{
 
                 <div className={"m-wrapper"}>
 
-                    <Table striped bordered hover>
+                    <Table striped bordered hover responsive>
                         <thead>
                         <tr>
                             <th>File ID</th>
