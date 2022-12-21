@@ -1,23 +1,28 @@
 {
   "name": "local_file_server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.6.2",
     "copy-clipboard-js": "^1.0.3",
-    "material-kit-react": "^1.8.0",
-    "public-ip": "^4.0.0",
-    "react": "^16.13.0",
-    "react-bootstrap": "^1.0.0-beta.17",
-    "react-dom": "^16.13.0",
-    "react-notifications": "^1.5.0-beta.0",
-    "react-router-dom": "^5.1.2",
+    "material-kit-react": "^1.10.0",
+    "public-ip": "^4.0.4",
+    "react": "^16.14.0",
+    "react-bootstrap": "^1.6.6",
+    "react-dom": "^16.14.0",
+    "react-notifications": "^1.7.4",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "3.4.0",
     "react-welcome-page": "^0.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "webpack-dev-server": "3.10.2"
   },
   "scripts": {
     "start": "react-scripts start",
