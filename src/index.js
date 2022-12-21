@@ -5,7 +5,7 @@ import Upload from "./component/Upload";
 import {BrowserRouter,Switch, Route, Redirect} from 'react-router-dom'
 
 const router=
-    <BrowserRouter>
+    <BrowserRouter basename="/Local-File-Server">
         <Switch>
             <Route exact path="/">
                 <Redirect to="/home"/>
